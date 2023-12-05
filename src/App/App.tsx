@@ -11,12 +11,14 @@ function App() {
   }
   return (
     <Grid container spacing={2}>
-      <Grid item xs={6}>
-        <TextField label="Текст 1" />
-        <TextField label="Текст 2" />
-        <TextField label="Текст 3" />
+      <Grid item xs={4} >
+        <Grid container direction="column">
+          <TextField label="Название статьи" style={{ width: '200px' }} />
+          <TextField label="Автор" style={{ width: '200px', marginTop: '16px' }} />
+          <TextField label="Текст статьи" multiline={true} rows={4} style={{ width: '400px', marginTop: '16px' }} />
+        </Grid>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <Box style={{ width: '400px', height: '600px', border: '2px solid black', margin: '16px' }} >
           <FlutterView
             assetBase={process.env.PUBLIC_URL + '/flutter/'}
