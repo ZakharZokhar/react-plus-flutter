@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, memo } from 'react'
 import CircularProgress from '@mui/material/CircularProgress'
 import Box from '@mui/material/Box'
+import Article from '../Article'
 
 // The global _flutter namespace
 declare var _flutter: any
@@ -13,26 +14,23 @@ const divStyle: React.CSSProperties = {
 interface FlutterViewProps {
   assetBase?: string;
   src?: string;
-  onClicksChange?: (clicks: number) => void;
-
-  clicks: number;
+  articles: Article[];
+  onArticlesChanged?: (article: Article[]) => void;
 }
 
 export const FlutterView: React.FC<FlutterViewProps> = memo(({
   assetBase = '',
   src = 'main.dart.js',
-  onClicksChange,
-  clicks,
+  onArticlesChanged,
+  articles,
 }) => {
   const flutterState = useRef<any>(null)
   const ref = useRef<HTMLDivElement>(null)
 
   const onFlutterAppLoaded = (state: any) => {
     flutterState.current = state
-    // listen to state changes
-    state.onClicksChanged(onClicksChange)
-    // set initial values
-    state.setClicks(clicks)
+    state.onArticlesChanged(onArticlesChanged)
+    state.setArticles(articles)
   }
 
   useEffect(() => {
@@ -78,8 +76,8 @@ export const FlutterView: React.FC<FlutterViewProps> = memo(({
   }, [])
 
   useEffect(() => {
-    flutterState.current?.setClicks(clicks)
-  }, [clicks])
+    flutterState.current?.setArticles(articles)
+  }, [articles])
 
   return (
     <div
