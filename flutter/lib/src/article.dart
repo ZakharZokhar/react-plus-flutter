@@ -9,16 +9,14 @@ class Article {
   external String title;
   external String author;
   external String body;
-  // external List<Uint8List> images;
-  // external List<String> imageLinks;
+  external List<Uint8List> images;
   external String timestampIsoString;
 
   external Article(
     String title,
     String author,
     String body,
-    // List<Uint8List> images,
-    // List<String> imageLinks,
+    List<Uint8List> images,
     String timestampIsoString,
   );
 }

@@ -50,52 +50,25 @@ class ArticlesPage extends StatelessWidget {
                     articles[index].body,
                     maxLines: 5,
                   ),
-                  // if (articles[index].imageLinks.isNotEmpty)
-                  //   Container(
-                  //     height: 60,
-                  //     padding: const EdgeInsets.only(top: 8),
-                  //     child: ListView.separated(
-                  //       itemBuilder: (context, imageIndex) => Image.network(
-                  //         articles[index].imageLinks[imageIndex],
-                  //         height: 60,
-                  //         width: 60,
-                  //         fit: BoxFit.cover,
-                  //       ),
-                  //       separatorBuilder: (context, index) => const SizedBox(
-                  //         width: 8,
-                  //       ),
-                  //       shrinkWrap: true,
-                  //       scrollDirection: Axis.horizontal,
-                  //       itemCount: articles[index].imageLinks.length,
-                  //     ),
-                  //   ),
-                  // if (articles[index].images.isNotEmpty)
-                  //   Container(
-                  //     height: 60,
-                  //     padding: const EdgeInsets.only(top: 8),
-                  //     child: ListView.separated(
-                  //       itemBuilder: (context, index) => ListView.separated(
-                  //         itemBuilder: (context, imageIndex) => Image.memory(
-                  //           articles[index].images[imageIndex],
-                  //           height: 60,
-                  //           width: 60,
-                  //           fit: BoxFit.cover,
-                  //         ),
-                  //         separatorBuilder: (context, index) => const SizedBox(
-                  //           width: 8,
-                  //         ),
-                  //         shrinkWrap: true,
-                  //         scrollDirection: Axis.horizontal,
-                  //         itemCount: articles[index].imageLinks.length,
-                  //       ),
-                  //       separatorBuilder: (context, index) => const SizedBox(
-                  //         width: 8,
-                  //       ),
-                  //       shrinkWrap: true,
-                  //       scrollDirection: Axis.horizontal,
-                  //       itemCount: articles[index].imageLinks.length,
-                  //     ),
-                  //   ),
+                  if (articles[index].images.isNotEmpty)
+                    Container(
+                      height: 60,
+                      padding: const EdgeInsets.only(top: 8),
+                      child: ListView.separated(
+                        itemBuilder: (context, imageIndex) => Image.memory(
+                          articles[index].images[imageIndex],
+                          height: 60,
+                          width: 60,
+                          fit: BoxFit.cover,
+                        ),
+                        separatorBuilder: (context, index) => const SizedBox(
+                          width: 8,
+                        ),
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: articles[index].images.length,
+                      ),
+                    ),
                 ],
               ),
             ),
