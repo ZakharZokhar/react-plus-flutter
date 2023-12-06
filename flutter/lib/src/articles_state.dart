@@ -15,4 +15,19 @@ class ArticlesState {
       article,
     ];
   }
+
+  List<Article> getArticles() {
+    return _articles.value;
+  }
+
+  void setArticles(List<Article> value) {
+    _articles.value = value;
+  }
+
+  // Allows clients to subscribe to changes to the wrapped value.
+  void onArticlesChanged(Function(List<Article>) f) {
+    _articles.addListener(() {
+      f(getArticles());
+    });
+  }
 }

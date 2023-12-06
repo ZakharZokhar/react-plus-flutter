@@ -10,15 +10,13 @@ class Article {
   external String author;
   external String body;
   external List<Uint8List> images;
-  external List<String> imageLinks;
-  external DateTime timestamp;
+  external String timestampIsoString;
 
   external Article(
     String title,
     String author,
     String body,
     List<Uint8List> images,
-    List<String> imageLinks,
-    DateTime timestamp,
+    String timestampIsoString,
   );
 }
